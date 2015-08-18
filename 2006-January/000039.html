@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Schillix-discuss] SchilliX-0.4.3: no output on console
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/schillix-discuss/2006-January/index.html" >
+   <LINK REL="made" HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20SchilliX-0.4.3%3A%20no%20output%20on%20console&In-Reply-To=%3C43DFA4D8.nail3IK1JBMLH%40burner%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000038.html">
+   <LINK REL="Next"  HREF="000036.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Schillix-discuss] SchilliX-0.4.3: no output on console</H1>
+    <B>Joerg Schilling</B> 
+    <A HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20SchilliX-0.4.3%3A%20no%20output%20on%20console&In-Reply-To=%3C43DFA4D8.nail3IK1JBMLH%40burner%3E"
+       TITLE="[Schillix-discuss] SchilliX-0.4.3: no output on console">schilling at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Jan 31 18:56:40 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000038.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+        <LI>Next message: <A HREF="000036.html">[Schillix-discuss] new Hompage
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Pavel Gorshkov &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">gorshkov.pavel at gmail.com</A>&gt; wrote:
+
+&gt;<i> &gt; Thank you for this hint. Could you try to only change one place:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Plase just remove these two lines:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; pcn &quot;pci1022,2000&quot; 
+</I>&gt;<i> &gt; pcn &quot;pci103c,104c&quot; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; from /etc/driver_aliases?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I would expect that this minor change would be suffucient.
+</I>&gt;<i>
+</I>&gt;<i> Removing just the conflicting `pcn' entries from
+</I>&gt;<i> /etc/driver_aliases did the trick, thanks!
+</I>&gt;<i> Still, you might consider removing the comments from
+</I>&gt;<i> /etc/name_to_major, because add_drv refuses to process them.
+</I>
+Thank you for the hint, so I would need to hack add_drv.
+I did already hack devfsadm to allow comments in /etc/minor_perm
+
+J&#246;rg
+
+-- 
+ EMail:<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">joerg at schily.isdn.cs.tu-berlin.de</A> (home) J&#246;rg Schilling D-13353 Berlin
+       <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">js at cs.tu-berlin.de</A>                (uni)  
+       <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">schilling at fokus.fraunhofer.de</A>     (work) Blog: <A HREF="http://schily.blogspot.com/">http://schily.blogspot.com/</A>
+ URL:  <A HREF="http://cdrecord.berlios.de/old/private/">http://cdrecord.berlios.de/old/private/</A> <A HREF="ftp://ftp.berlios.de/pub/schily">ftp://ftp.berlios.de/pub/schily</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000038.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+	<LI>Next message: <A HREF="000036.html">[Schillix-discuss] new Hompage
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/schillix-discuss">More information about the Schillix-discuss
+mailing list</a><br>
+</body></html>

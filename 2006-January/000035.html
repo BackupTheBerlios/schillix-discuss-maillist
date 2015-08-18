@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Schillix-discuss] SchilliX-0.4.3: no output on console
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/schillix-discuss/2006-January/index.html" >
+   <LINK REL="made" HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20SchilliX-0.4.3%3A%20no%20output%20on%20console&In-Reply-To=%3C20060130211509.GA1269%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000034.html">
+   <LINK REL="Next"  HREF="000037.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Schillix-discuss] SchilliX-0.4.3: no output on console</H1>
+    <B>Pavel Gorshkov</B> 
+    <A HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20SchilliX-0.4.3%3A%20no%20output%20on%20console&In-Reply-To=%3C20060130211509.GA1269%40localhost%3E"
+       TITLE="[Schillix-discuss] SchilliX-0.4.3: no output on console">gorshkov.pavel at gmail.com
+       </A><BR>
+    <I>Mon Jan 30 22:15:09 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000034.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+        <LI>Next message: <A HREF="000037.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#35">[ date ]</a>
+              <a href="thread.html#35">[ thread ]</a>
+              <a href="subject.html#35">[ subject ]</a>
+              <a href="author.html#35">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jan 30, 2006 at 04:30:17PM +0100, Joerg Schilling wrote:
+&gt;<i> Pavel Gorshkov &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">gorshkov.pavel at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; I have the following problem booting SchilliX-0.4.3 on real
+</I>&gt;<i> &gt; hardware:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;     [snip]
+</I>&gt;<i> &gt;     8042 device: <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">mouse at 1</A>, mouse8042 # 0
+</I>&gt;<i> &gt;     mouse80420 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">i8042 at 1</A>,60/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">mouse at 1</A>
+</I>&gt;<i> &gt;     mouse8042 #0: version 1.48 (05/10/2005)
+</I>&gt;<i> &gt;     [ no output past this point, the cursor stays forever on this line ]
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i> If you have been able to log in, could you send the kernel
+</I>&gt;<i> messages that come _past_ that time?
+</I>
+I've managed to blindly copy the dmesg output to a CD (see the
+attachment).  The boot options were
+
+    -vk -B kbd-type=US-English,acpi-user-options=0x02
+
+
+&gt;<i> &gt; The good news is that it works under vmware-3.0 (I can post some
+</I>&gt;<i> &gt; hints on getting the `ae' driver loaded properly in case anyone is
+</I>&gt;<i> 
+</I>&gt;<i> What did you need to do?
+</I>
+In short, the `ae' entry in /etc/name_to_major had to be changed:
+
+    -ae 236
+    +ae 104
+
+Just to be sure, I removed both `ae' and `pcn' from
+/etc/driver_aliases and /etc/name_to_major, removed the comments
+from /etc/name_to_major, and then re-added the driver as outlined
+in ae-0.0.1/README:
+
+    add_drv -m&quot;* 0666 root root&quot; -i'&quot;pci1022,2000&quot;' ae
+
+
+&gt;<i> It will take some time until we get non debug aware sources from Sun.
+</I>&gt;<i> Note that there are still some minor parts that are CSS and that
+</I>&gt;<i> are only available in debug versions.
+</I>
+Ok, thanks for the clarification.
+
+
+--
+Pavel Gorshkov
+-------------- next part --------------
+
+Mon Jan 30 19:02:04 CET 2006
+Jan 30 18:56:50 unknown genunix: [ID 540533 kern.notice] ^MSunOS Release 5.11 Version schily31 32-bit
+Jan 30 18:56:50 unknown genunix: [ID 943906 kern.notice] Copyright 1983-2005 Sun Microsystems, Inc.  All rights reserved.
+Jan 30 18:56:50 unknown Use is subject to license terms.
+Jan 30 18:56:50 unknown genunix: [ID 145129 kern.notice] DEBUG enabled
+Jan 30 18:56:50 unknown unix: [ID 126719 kern.notice] features: 1003fdf&lt;cpuid,sse,sep,pat,cx8,pae,mca,mmx,cmov,pge,mtrr,msr,tsc,lgpg&gt;
+Jan 30 18:56:50 unknown genunix: [ID 243001 kern.warning] WARNING: The binding file entry &quot;iprb 234&quot; conflicts with a previous entry on line 209 of /etc/name_to_major
+Jan 30 18:56:50 unknown genunix: [ID 723599 kern.warning] WARNING: Driver alias &quot;pci1022,2000&quot; conflicts with an existing driver name or alias.
+Jan 30 18:56:50 unknown genunix: [ID 723599 kern.warning] WARNING: Driver alias &quot;pci103c,104c&quot; conflicts with an existing driver name or alias.
+Jan 30 18:56:50 unknown genunix: [ID 897550 kern.notice] Using default device instance data
+Jan 30 18:56:50 unknown unix: [ID 168242 kern.notice] mem = 522812K (0x1fe8f000)
+Jan 30 18:56:50 unknown rootnex: [ID 466748 kern.notice] root nexus = i86pc
+Jan 30 18:56:50 unknown rootnex: [ID 349649 kern.notice] pseudo0 at root
+Jan 30 18:56:50 unknown genunix: [ID 936769 kern.notice] pseudo0 is /pseudo
+Jan 30 18:56:50 unknown rootnex: [ID 349649 kern.notice] scsi_vhci0 at root
+Jan 30 18:56:50 unknown genunix: [ID 936769 kern.notice] scsi_vhci0 is /scsi_vhci
+Jan 30 18:56:50 unknown rootnex: [ID 349649 kern.notice] isa0 at root
+Jan 30 18:56:50 unknown acpica: [ID 290660 kern.info] NOTICE: acpica: table [RSDT] v1 OEM ID [IntelR] OEM TABLE ID [AWRDACPI] OEM rev 42302e31
+Jan 30 18:56:50 unknown acpica: [ID 290660 kern.info] NOTICE: acpica: table [FACP] v1 OEM ID [IntelR] OEM TABLE ID [AWRDACPI] OEM rev 42302e31
+Jan 30 18:56:50 unknown acpica: [ID 566992 kern.warning] WARNING: isa_enum: init failed
+Jan 30 18:56:50 unknown isa: [ID 930810 kern.info] NOTICE: Solaris did not detect ACPI BIOS
+Jan 30 18:56:50 unknown isa: [ID 477837 kern.info] NOTICE: ACPI is off
+Jan 30 18:56:50 unknown acpica: [ID 290660 kern.info] NOTICE: acpica: table [RSDT] v1 OEM ID [IntelR] OEM TABLE ID [AWRDACPI] OEM rev 42302e31
+Jan 30 18:56:50 unknown rootnex: [ID 349649 kern.notice] ramdisk0 at root
+Jan 30 18:56:50 unknown genunix: [ID 936769 kern.notice] ramdisk0 is /ramdisk
+Jan 30 18:56:50 unknown unix: [ID 672469 kern.notice] SMBIOS not loaded (SMBIOS format is too old for processing)
+Jan 30 18:56:50 unknown last message repeated 1 time
+Jan 30 18:56:50 unknown mac: [ID 943737 kern.info] NOTICE: MAC Services v1.8 loaded
+Jan 30 18:56:50 unknown dls: [ID 943737 kern.info] NOTICE: Data-Link Services v1.5 loaded
+Jan 30 18:56:50 unknown pseudo: [ID 129642 kern.notice] pseudo-device: dld0
+Jan 30 18:56:50 unknown genunix: [ID 936769 kern.notice] dld0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">dld at 0</A>
+Jan 30 18:56:50 unknown rootnex: [ID 349649 kern.notice] pci0 at root: space 0 offset 0
+Jan 30 18:56:50 unknown genunix: [ID 936769 kern.notice] pci0 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0
+Jan 30 18:56:50 unknown i8042: [ID 526150 kern.notice] 8042 device:  <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">keyboard at 0</A>, kb8042 # 0
+Jan 30 18:56:50 unknown genunix: [ID 936769 kern.notice] kb80420 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">i8042 at 1</A>,60/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">keyboard at 0</A>
+Jan 30 18:56:50 unknown kb8042: [ID 390002 kern.notice] kb8042 #0: version 1.65 (05/11/02)
+Jan 30 18:56:50 unknown i8042: [ID 526150 kern.notice] 8042 device:  <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">mouse at 1</A>, mouse8042 # 0
+Jan 30 18:56:50 unknown genunix: [ID 936769 kern.notice] mouse80420 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">i8042 at 1</A>,60/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">mouse at 1</A>
+Jan 30 18:56:50 unknown mouse8042: [ID 390002 kern.notice] mouse8042 #0: version 1.48 (05/10/25)
+Jan 30 18:56:51 unknown genunix: [ID 888514 kern.warning] WARNING: Kernel debugger present: see kmdb(1M) for interaction with power management.
+Jan 30 18:56:51 unknown genunix: [ID 568809 kern.notice] boot scratch memory used: 0x55f114
+Jan 30 18:56:52 unknown pci: [ID 370704 kern.notice] PCI-device: <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci147b,402 at 1f</A>,2, uhci0
+Jan 30 18:56:52 unknown genunix: [ID 936769 kern.notice] uhci0 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci147b,402 at 1f</A>,2
+Jan 30 18:56:53 unknown pci: [ID 370704 kern.notice] PCI-device: <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci147b,402 at 1f</A>,4, uhci1
+Jan 30 18:56:53 unknown genunix: [ID 936769 kern.notice] uhci1 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci147b,402 at 1f</A>,4
+Jan 30 18:56:53 unknown unix: [ID 950921 kern.notice] cpu0: x86 (GenuineIntel family 6 model 8 step 6 clock 867 MHz)
+Jan 30 18:56:53 unknown unix: [ID 950921 kern.notice] cpu0: Intel(r) Pentium(r) III
+Jan 30 18:57:03 unknown pseudo: [ID 129642 kern.notice] pseudo-device: devinfo0
+Jan 30 18:57:03 unknown genunix: [ID 936769 kern.notice] devinfo0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">devinfo at 0</A>
+Jan 30 18:57:03 unknown isa: [ID 202937 kern.notice] ISA-device: asy0
+Jan 30 18:57:03 unknown genunix: [ID 936769 kern.notice] asy0 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">asy at 1</A>,3f8
+Jan 30 18:57:03 unknown isa: [ID 202937 kern.notice] ISA-device: asy1
+Jan 30 18:57:03 unknown genunix: [ID 936769 kern.notice] asy1 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">asy at 1</A>,2f8
+Jan 30 18:57:03 unknown pseudo: [ID 129642 kern.notice] pseudo-device: pseudo1
+Jan 30 18:57:03 unknown genunix: [ID 936769 kern.notice] pseudo1 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">zconsnex at 1</A>
+Jan 30 18:57:03 unknown isa: [ID 202937 kern.notice] ISA-device: ecpp0
+Jan 30 18:57:03 unknown genunix: [ID 936769 kern.notice] ecpp0 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">lp at 1</A>,378
+Jan 30 18:57:03 unknown pci: [ID 370704 kern.notice] PCI-device: <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci8086,244e at 1e</A>, pci_pci0
+Jan 30 18:57:03 unknown genunix: [ID 936769 kern.notice] pci_pci0 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci8086,244e at 1e</A>
+Jan 30 18:57:03 unknown isa: [ID 202937 kern.notice] ISA-device: aperture0
+Jan 30 18:57:03 unknown genunix: [ID 936769 kern.notice] aperture0 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">aperture at 0</A>,0
+Jan 30 18:57:03 unknown genunix: [ID 640982 kern.notice] 	IDE device at targ 0, lun 0 lastlun 0x0
+Jan 30 18:57:03 unknown genunix: [ID 846691 kern.notice] 	model ST3120026A
+Jan 30 18:57:03 unknown genunix: [ID 479077 kern.notice] 	ATA/ATAPI-6 supported, majver 0x7e minver 0x1b
+Jan 30 18:57:03 unknown genunix: [ID 228648 kern.notice] ata_set_feature: (0x66,0x0) failed
+Jan 30 18:57:05 unknown pci: [ID 370704 kern.notice] PCI-device: <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">ide at 0</A>, ata0
+Jan 30 18:57:05 unknown genunix: [ID 936769 kern.notice] ata0 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci-ide at 1f</A>,1/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">ide at 0</A>
+Jan 30 18:57:05 unknown genunix: [ID 640982 kern.notice] 	ATAPI device at targ 0, lun 0 lastlun 0x0
+Jan 30 18:57:05 unknown genunix: [ID 846691 kern.notice] 	model PLEXTOR CD-R   PX-W2410A
+Jan 30 18:57:06 unknown pci: [ID 370704 kern.notice] PCI-device: <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">ide at 1</A>, ata1
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] ata1 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci-ide at 1f</A>,1/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">ide at 1</A>
+Jan 30 18:57:06 unknown unix: [ID 954099 kern.info] NOTICE: IRQ11 is being shared by drivers with different interrupt levels.
+Jan 30 18:57:06 unknown This may result in reduced system performance.
+Jan 30 18:57:06 unknown genunix: [ID 678236 kern.notice] Ethernet address = 0:2:b3:e7:41:51
+Jan 30 18:57:06 unknown gld: [ID 944156 kern.info] iprb0: Intel 82558/82559 Ver 0.010.6 Driver: type &quot;ether&quot; mac address 00:02:b3:e7:41:51
+Jan 30 18:57:06 unknown pci_pci: [ID 370704 kern.notice] PCI-device: <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci8086,c at 4</A>, iprb0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] iprb0 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci8086,244e at 1e</A>/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci8086,c at 4</A>
+Jan 30 18:57:06 unknown genunix: [ID 773945 kern.notice] 	UltraDMA mode 5 selected
+Jan 30 18:57:06 unknown genunix: [ID 773945 kern.notice] 	UltraDMA mode 2 selected
+Jan 30 18:57:06 unknown last message repeated 2 times
+Jan 30 18:57:06 unknown gda: [ID 243001 kern.info] Disk0:	&lt;Vendor 'Gen-ATA ' Product 'ST3120026A      '&gt;
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: fssnap0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] fssnap0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">fssnap at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: ramdisk1024
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] ramdisk1024 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">ramdisk at 1024</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: winlock0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] winlock0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">winlock at 0</A>
+Jan 30 18:57:06 unknown ata: [ID 496167 kern.notice] cmdk0 at ata0 target 0 lun 0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] cmdk0 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci-ide at 1f</A>,1/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">ide at 0</A>/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">cmdk at 0</A>,0
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: lockstat0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] lockstat0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">lockstat at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: llc10
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] llc10 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">llc1 at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: vol0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] vol0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">vol at 0</A>
+Jan 30 18:57:06 unknown scsi: [ID 193665 kern.notice] sd0 at ata1: target 0 lun 0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] sd0 is /<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci at 0</A>,0/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pci-ide at 1f</A>,1/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">ide at 1</A>/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">sd at 0</A>,0
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: pm0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] pm0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pm at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: lofi0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] lofi0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">lofi at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: rsm0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] rsm0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">rsm at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: dtrace0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] dtrace0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">dtrace at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: profile0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] profile0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">profile at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: systrace0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] systrace0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">systrace at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: fbt0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] fbt0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">fbt at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: sdt0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] sdt0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">sdt at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: pool0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] pool0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pool at 0</A>
+Jan 30 18:57:06 unknown ipf: [ID 774698 kern.info] IP Filter: v4.0.3, running.
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: fasttrap0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] fasttrap0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">fasttrap at 0</A>
+Jan 30 18:57:06 unknown acpica: [ID 290660 kern.info] NOTICE: acpica: table [RSDT] v1 OEM ID [IntelR] OEM TABLE ID [AWRDACPI] OEM rev 42302e31
+Jan 30 18:57:06 unknown acpica: [ID 290660 kern.info] NOTICE: acpica: table [FACP] v1 OEM ID [IntelR] OEM TABLE ID [AWRDACPI] OEM rev 42302e31
+Jan 30 18:57:06 unknown acpica: [ID 322313 kern.notice] evxfevnt-0288 [02] EnableEvent           : Could not enable PowerButton event
+Jan 30 18:57:06 unknown acpica: [ID 307534 kern.notice]  evxface-0233 [01] InstallFixedEventHandl: Could not enable fixed event.
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: power0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] power0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">power at 0</A>
+Jan 30 18:57:06 unknown pseudo: [ID 129642 kern.notice] pseudo-device: zfs0
+Jan 30 18:57:06 unknown genunix: [ID 936769 kern.notice] zfs0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">zfs at 0</A>
+Jan 30 18:57:08 unknown genunix: [ID 314293 kern.info] device <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">pciclass,030000 at 2</A>(display#0) keeps up device <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">sd at 0</A>,0(sd#0), but the latter is not power managed
+Jan 30 18:57:18 unknown genunix: [ID 390243 kern.info] Creating /etc/devices/devid_cache
+Jan 30 18:57:31 unknown savecore: [ID 686316 auth.error] no dump device configured
+Jan 30 18:57:32 unknown last message repeated 2 times
+Jan 30 18:57:35 unknown genunix: [ID 773945 kern.notice] 	UltraDMA mode 5 selected
+Jan 30 18:57:35 unknown genunix: [ID 773945 kern.notice] 	UltraDMA mode 2 selected
+Jan 30 18:57:35 unknown last message repeated 2 times
+Jan 30 18:57:37 unknown /usr/sbin/vold[100390]: [ID 770238 daemon.error] cdrom: /dev/rdsk/c1t0d0s2; Device busy
+Jan 30 18:57:42 unknown /usr/lib/snmp/snmpdx: [ID 702911 daemon.error] unable to get my IP address: gethostbyname(unknown) failed [h_errno: ???(-1)]
+Jan 30 18:59:43 unknown pseudo: [ID 129642 kern.notice] pseudo-device: devinfo0
+Jan 30 18:59:43 unknown genunix: [ID 936769 kern.notice] devinfo0 is /pseudo/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">devinfo at 0</A>
+Jan 30 18:59:43 unknown isa: [ID 202937 kern.notice] ISA-device: aperture0
+Jan 30 18:59:43 unknown genunix: [ID 936769 kern.notice] aperture0 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">aperture at 0</A>,0
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000034.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+	<LI>Next message: <A HREF="000037.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#35">[ date ]</a>
+              <a href="thread.html#35">[ thread ]</a>
+              <a href="subject.html#35">[ subject ]</a>
+              <a href="author.html#35">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/schillix-discuss">More information about the Schillix-discuss
+mailing list</a><br>
+</body></html>

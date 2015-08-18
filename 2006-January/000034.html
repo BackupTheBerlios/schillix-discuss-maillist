@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Schillix-discuss] SchilliX-0.4.3: no output on console
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/schillix-discuss/2006-January/index.html" >
+   <LINK REL="made" HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20SchilliX-0.4.3%3A%20no%20output%20on%20console&In-Reply-To=%3C43DE3109.nail16ZE1ICUH%40burner%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000033.html">
+   <LINK REL="Next"  HREF="000035.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Schillix-discuss] SchilliX-0.4.3: no output on console</H1>
+    <B>Joerg Schilling</B> 
+    <A HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20SchilliX-0.4.3%3A%20no%20output%20on%20console&In-Reply-To=%3C43DE3109.nail16ZE1ICUH%40burner%3E"
+       TITLE="[Schillix-discuss] SchilliX-0.4.3: no output on console">schilling at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Jan 30 16:30:17 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000033.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+        <LI>Next message: <A HREF="000035.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Pavel Gorshkov &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">gorshkov.pavel at gmail.com</A>&gt; wrote:
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I have the following problem booting SchilliX-0.4.3 on real
+</I>&gt;<i> hardware:
+</I>&gt;<i>
+</I>&gt;<i>     [snip]
+</I>&gt;<i>     8042 device: <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">mouse at 1</A>, mouse8042 # 0
+</I>&gt;<i>     mouse80420 is /isa/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">i8042 at 1</A>,60/<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">mouse at 1</A>
+</I>&gt;<i>     mouse8042 #0: version 1.48 (05/10/2005)
+</I>&gt;<i>     [ no output past this point, the cursor stays forever on this line ]
+</I>&gt;<i>
+</I>&gt;<i> Surprisingly, the system continues booting, so I can blindly login
+</I>&gt;<i> as root and reboot it :)
+</I>&gt;<i>
+</I>&gt;<i> I've tried the following boot options:
+</I>&gt;<i>
+</I>&gt;<i>     -vk -B kbd-type=US-English
+</I>&gt;<i>     -v -B kbd-type=US-English,acpi-user-options=0x2
+</I>
+If you have been able to log in, could you send the kernel
+messages that come _past_ that time?
+
+&gt;<i> In case this helps, attached is a dmesg from my primary OS
+</I>&gt;<i> (FreeBSD-6.0) running on the same box.
+</I>&gt;<i>
+</I>&gt;<i> ***
+</I>&gt;<i> The good news is that it works under vmware-3.0 (I can post some
+</I>&gt;<i> hints on getting the `ae' driver loaded properly in case anyone is
+</I>
+What did you need to do?
+
+&gt;<i> interested), but still it is VERY slow compared to Solaris 9
+</I>&gt;<i> running in the same environment, so I'm curious about whether
+</I>&gt;<i> anyone has tried getting a non-debug build?
+</I>
+It will take some time until we get non debug aware sources from Sun.
+Note that there are still some minor parts that are CSS and that
+are only available in debug versions.
+
+J&#246;rg
+
+-- 
+ EMail:<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">joerg at schily.isdn.cs.tu-berlin.de</A> (home) J&#246;rg Schilling D-13353 Berlin
+       <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">js at cs.tu-berlin.de</A>                (uni)  
+       <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">schilling at fokus.fraunhofer.de</A>     (work) Blog: <A HREF="http://schily.blogspot.com/">http://schily.blogspot.com/</A>
+ URL:  <A HREF="http://cdrecord.berlios.de/old/private/">http://cdrecord.berlios.de/old/private/</A> <A HREF="ftp://ftp.berlios.de/pub/schily">ftp://ftp.berlios.de/pub/schily</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000033.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+	<LI>Next message: <A HREF="000035.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/schillix-discuss">More information about the Schillix-discuss
+mailing list</a><br>
+</body></html>

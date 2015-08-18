@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Schillix-discuss] General feedback
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/schillix-discuss/2006-January/index.html" >
+   <LINK REL="made" HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20General%20feedback&In-Reply-To=%3C43D797F1.nailD7881OF8E%40burner%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000031.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Schillix-discuss] General feedback</H1>
+    <B>Joerg Schilling</B> 
+    <A HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20General%20feedback&In-Reply-To=%3C43D797F1.nailD7881OF8E%40burner%3E"
+       TITLE="[Schillix-discuss] General feedback">schilling at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Jan 25 16:23:29 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000031.html">[Schillix-discuss] General feedback
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Jan Engelhardt &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">jengelh at linux01.gwdg.de</A>&gt; wrote:
+
+
+&gt;<i> congratulations, SchilliX is certainly a good piece of work so far.
+</I>&gt;<i> (Sun k&#195;&#182;nnte sich von der Bootgeschwindigkeit f&#195;&#188;r Solaris 10 Installer 'ne 
+</I>&gt;<i> Scheibe abschneiden!)
+</I>&gt;<i> How come it needs 256megs of RAM?
+</I>
+It actually needs less. There are three boot options:
+
+-	Full 32 bit RAMD.  The RAM Disk size is ~ 190 MB
+	Compressed: 64 MB
+
+-	Root only 32 bit RAMD. The RAM Disk size is ~ 64 MB
+	Compressed: 19 MB
+
+-	Root only 32/64 bit RAMD. The RAM Disk size is ~ 110 MB
+	Compressed: 35 MB
+
+Solaris will boot of Grub + gzip compressed RAMD + uncompressed RAMD
+fit into core. The smalles Boot Option will work with 128 MB of RAM.
+
+If I have some time, I may move some of the drivers from /kernel
+to /usr/kernel and reduce the small root from 64 MB to ~ 30 MB.
+Then it may be possible to boot with 64 MB of RAM.
+
+
+J&#246;rg
+
+-- 
+ EMail:<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">joerg at schily.isdn.cs.tu-berlin.de</A> (home) J&#246;rg Schilling D-13353 Berlin
+       <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">js at cs.tu-berlin.de</A>                (uni)  
+       <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">schilling at fokus.fraunhofer.de</A>     (work) Blog: <A HREF="http://schily.blogspot.com/">http://schily.blogspot.com/</A>
+ URL:  <A HREF="http://cdrecord.berlios.de/old/private/">http://cdrecord.berlios.de/old/private/</A> <A HREF="ftp://ftp.berlios.de/pub/schily">ftp://ftp.berlios.de/pub/schily</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000031.html">[Schillix-discuss] General feedback
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/schillix-discuss">More information about the Schillix-discuss
+mailing list</a><br>
+</body></html>

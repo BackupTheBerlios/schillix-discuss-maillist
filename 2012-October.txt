@@ -1,0 +1,52 @@
+From Joerg.Schilling at fokus.fraunhofer.de  Fri Oct  5 12:12:23 2012
+From: Joerg.Schilling at fokus.fraunhofer.de (Joerg Schilling)
+Date: Fri, 5 Oct 2012 12:12:23 +0200
+Subject: [Schillix-discuss] [developer] [OpenIndiana-discuss]
+ Preliminary Download link: Illumos based MartUX_OpenIndiana_Edition for
+ SPARC LiveDVD (without installer)
+In-Reply-To: <CAPFiN0i3MLmFwLEZgtnWPXuXBcgQWzLGdF5dpH7cHRFp3YF=ww@mail.gmail.com>
+References: <CABiyw5goWo1=1WRDJt6XaxMYYYjpOHjs15i2=FajxJd8tVYr1g@mail.gmail.com>
+	<1348835141.77538.YahooMailNeo@web111307.mail.gq1.yahoo.com>
+	<CAMaOCTL3-WR1-1yCm+bMXA4=zZ=yJjmjG8guKfJg5n3vQ7yr5w@mail.gmail.com>
+	<CABiyw5iUQK6PqQZNZir8g+g70up-p7HCLUQvD0SiOZGEHno-MQ@mail.gmail.com>
+	<A590650A-74A7-43EA-B916-6AF26EF1C29E@damore.org>
+	<65B004DC-3A5A-4BD5-A08D-5EE83FA9AF44@gmail.com>
+	<CABiyw5hxa7gNyc+wmtwAi94jWTmJLKpg5cJzELCT1ww4y7ZYgQ@mail.gmail.com>
+	<CAPFiN0gZt4PqfU95vXh0ap_VbiaDiDVcCVPCC0MPGZ4ad_xdNA@mail.gmail.com>
+	<CAMq1bfSSS+C2nnds3VuN9oX1tJ3opYmJ3pLT=7mtoB7BLRVOUw@mail.gmail.com>
+	<CAMq1bfRVJhsfWgPTQWbb26oVQQX5tjAnkYf0KF+vpmau6+wzbg@mail.gmail.com>
+	<CAPFiN0i3MLmFwLEZgtnWPXuXBcgQWzLGdF5dpH7cHRFp3YF=ww@mail.gmail.com>
+Message-ID: <506eb287.PGo7myAvuP+Br740%Joerg.Schilling@fokus.fraunhofer.de>
+
+David Halko <davidhalko at gmail.com> wrote:
+
+> Hi Rob,
+>
+> I did not see a posting from you on the list, could it be that you are not
+> a subscriber?
+> I will forward your question on to the list.
+>
+> Hello List,
+>
+> Can anyone provide a suggestion for how vnc server and gdm can be enabled
+> on a SPARC headless server?
+>
+> David Halko
+> http://svr4.blogspot.com/
+> http://netmgt.blogspot.com/
+> P.S. Rob is starting an X Gui wrapper for SVR4 package installers
+
+Great! A fmli based text wrapper would also be nice ;-)
+
+Please note that I am currently planning to enhance "pkgadm" to become the Svr4 
+equivalent of the "pkg" command. It thus may be that the commands to call 
+change in the future.
+
+J?rg
+
+-- 
+ EMail:joerg at schily.isdn.cs.tu-berlin.de (home) J?rg Schilling D-13353 Berlin
+       js at cs.tu-berlin.de                (uni)  
+       joerg.schilling at fokus.fraunhofer.de (work) Blog: http://schily.blogspot.com/
+ URL:  http://cdrecord.berlios.de/private/ ftp://ftp.berlios.de/pub/schily
+

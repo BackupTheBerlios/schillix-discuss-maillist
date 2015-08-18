@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Schillix-discuss] architecture clarification
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/schillix-discuss/2009-December/index.html" >
+   <LINK REL="made" HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20architecture%20clarification&In-Reply-To=%3C4b30d076.XKsohk3lcs8gop0v%25Joerg.Schilling%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000044.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Schillix-discuss] architecture clarification</H1>
+    <B>Joerg Schilling</B> 
+    <A HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20architecture%20clarification&In-Reply-To=%3C4b30d076.XKsohk3lcs8gop0v%25Joerg.Schilling%40fokus.fraunhofer.de%3E"
+       TITLE="[Schillix-discuss] architecture clarification">Joerg.Schilling at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Dec 22 14:58:14 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000044.html">[Schillix-discuss] architecture clarification
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE><A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">schillix at mailcan.com</A> wrote:
+
+&gt;<i> What caught my attention about Schillix is that there's a place to
+</I>&gt;<i> choose between 32-bit and 64-bit, and I'd like to know some more.
+</I>&gt;<i>
+</I>&gt;<i> Does this mean that I can have a purely 64-bit system, including libs &amp;
+</I>&gt;<i> everything? This is of interest since I recall seeing a whole lot of
+</I>&gt;<i> i386 in Solaris 10 u8.
+</I>
+Why do you like to have a &quot;pure&quot; 64 bit systgem?
+
+&gt;<i> From what I understand, which is quite possibly misunderstood, that
+</I>&gt;<i> i386, i486, i586 &amp; i686 all refer to commands apps send to the kernel,
+</I>&gt;<i> with i386 being the simplest for old mobos from back when 1M RAM was a
+</I>&gt;<i> big deal, &amp; i686 being able to talk to dual-socket Pentium 3's.
+</I>&gt;<i>
+</I>&gt;<i> I vaguely understand that the _64 suffix to x86 refers to something
+</I>&gt;<i> called an extension. I imagine it's like an adapter to be able to count
+</I>&gt;<i> higher. And that this ability to count higher allows for more to be done
+</I>&gt;<i> in 1 CPU cycle.
+</I>&gt;<i>
+</I>&gt;<i> Wouldn't it be a waste of hardware to have x86 software run on an x86_64
+</I>&gt;<i> CPU? 
+</I>
+It is called binary compatibility and helps to avoid a lot of other problems
+if you like to support both.
+
+&gt;<i> Is it an erroneous assumption that a system comprised of entirely x86_64
+</I>&gt;<i> software run more efficiently than a mixed bag?
+</I>
+On a typical 64 bit architecture, typical 64 bit binaries run 10-20% slower
+than 32 bit applications. the AMD64 architecture is the only exception and this
+results from doubling the amount of rregisters in 64 bit mode. A portable OS
+does not depend on exceptions like the one for AMD64.
+
+J&#246;rg
+
+-- 
+ EMail:<A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">joerg at schily.isdn.cs.tu-berlin.de</A> (home) J&#246;rg Schilling D-13353 Berlin
+       <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">js at cs.tu-berlin.de</A>                (uni)  
+       <A HREF="https://lists.berlios.de/mailman/listinfo/schillix-discuss">joerg.schilling at fokus.fraunhofer.de</A> (work) Blog: <A HREF="http://schily.blogspot.com/">http://schily.blogspot.com/</A>
+ URL:  <A HREF="http://cdrecord.berlios.de/private/">http://cdrecord.berlios.de/private/</A> <A HREF="ftp://ftp.berlios.de/pub/schily">ftp://ftp.berlios.de/pub/schily</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000044.html">[Schillix-discuss] architecture clarification
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/schillix-discuss">More information about the Schillix-discuss
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Schillix-discuss] SchilliX-0.4.3: no output on console
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/schillix-discuss/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20SchilliX-0.4.3%3A%20no%20output%20on%20console&In-Reply-To=%3C20060201160700.GA2300%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000040.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Schillix-discuss] SchilliX-0.4.3: no output on console</H1>
+    <B>Pavel Gorshkov</B> 
+    <A HREF="mailto:schillix-discuss%40lists.berlios.de?Subject=Re%3A%20%5BSchillix-discuss%5D%20SchilliX-0.4.3%3A%20no%20output%20on%20console&In-Reply-To=%3C20060201160700.GA2300%40localhost%3E"
+       TITLE="[Schillix-discuss] SchilliX-0.4.3: no output on console">gorshkov.pavel at gmail.com
+       </A><BR>
+    <I>Wed Feb  1 17:07:00 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000040.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#41">[ date ]</a>
+              <a href="thread.html#41">[ thread ]</a>
+              <a href="subject.html#41">[ subject ]</a>
+              <a href="author.html#41">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Feb 01, 2006 at 03:46:07PM +0100, Joerg Schilling wrote:
+&gt;<i> YOu just need to create a free account first.
+</I>
+Thanks, I submitted it as a bug report yesterday:
+
+<A HREF="http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id=6379358">http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id=6379358</A>
+
+
+&gt;<i> &gt; 0.2.2	    nv26		works fine
+</I>&gt;<i> &gt; 0.3		    nv27a		doesn't work
+</I>&gt;<i> &gt; 0.4.3	    nv31		doesn't work
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; One possible reason may be that the concole character
+</I>&gt;<i> &gt; &gt; output does not work properly on your HW and that the characters become 
+</I>&gt;<i> &gt; &gt; invisible after the Solaris internal console driver is used.
+</I>&gt;<i> 
+</I>&gt;<i> If you know it that way exact, then it seems to be possible
+</I>&gt;<i> to find. At that time, Sun did fix a lot of bugs in the Intel ACPI
+</I>&gt;<i> code. 
+</I>
+Hmm, so it turns out that the bug may indeed be ACPI-related, at
+least indirectly.  The biggest problem is that it may not be
+reproducible anywhere but on that old box, which, however
+faultless and honourable, is not on the HCL.
+Therefore, the fact that it is a regression from snv_26 is
+probably the most useful clue I could provide them with.
+
+--
+Pavel Gorshkov
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000040.html">[Schillix-discuss] SchilliX-0.4.3: no output on console
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#41">[ date ]</a>
+              <a href="thread.html#41">[ thread ]</a>
+              <a href="subject.html#41">[ subject ]</a>
+              <a href="author.html#41">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/schillix-discuss">More information about the Schillix-discuss
+mailing list</a><br>
+</body></html>
